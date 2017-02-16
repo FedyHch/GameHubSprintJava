@@ -10,7 +10,6 @@ import gh.esprit.service.gestionEvenement;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,6 +56,7 @@ public class ModifierFXMLController implements Initializable {
      * @param url
      * @param rb
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             
@@ -65,6 +65,7 @@ public class ModifierFXMLController implements Initializable {
          id_evenement.setText(FXMLDocumentController.getIdevento());
          date.setValue(FXMLDocumentController.getDato());
          adresse.setText(FXMLDocumentController.getAdresso());
+         System.out.println("hello");
    }    
     
     @FXML

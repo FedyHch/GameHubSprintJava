@@ -5,7 +5,6 @@
  */
 package gh.esprit.entity;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 import javafx.beans.property.SimpleIntegerProperty;

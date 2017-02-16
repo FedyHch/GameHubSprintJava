@@ -8,9 +8,6 @@ package gh.esprit.service;
 import gh.esprit.technique.MyConnection;
 import gh.esprit.entity.Evenement;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 /**
