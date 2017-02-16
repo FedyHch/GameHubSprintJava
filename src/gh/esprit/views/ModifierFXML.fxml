@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.ModifierFXMLController">
+   <children>
+      <TextField fx:id="id_evenement" disable="true" layoutX="424.0" layoutY="62.0" prefHeight="25.0" prefWidth="51.0" />
+      <TextField fx:id="object" disable="true" layoutX="161.0" layoutY="62.0" />
+      <Label layoutX="398.0" layoutY="66.0" text="Id :" />
+      <Label layoutX="113.0" layoutY="66.0" text="Titre :" />
+      <Label layoutX="147.0" layoutY="164.0" text="Date :" />
+      <Label layoutX="129.0" layoutY="192.0" text="Description :" />
+      <Button fx:id="bmod" layoutX="45.0" layoutY="333.0" mnemonicParsing="false" onAction="#bmodAction" text="Modifier" />
+      <DatePicker fx:id="date" layoutX="215.0" layoutY="160.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextArea fx:id="description" layoutX="215.0" layoutY="192.0" prefHeight="157.0" prefWidth="200.0" />
+      <Button fx:id="retour" layoutX="132.0" layoutY="333.0" mnemonicParsing="false" onAction="#bretAction" text="Annuler" />
+      <Label layoutX="207.0" layoutY="29.0" text="Modification de l'événement" textAlignment="JUSTIFY" textOverrun="CLIP" underline="true" />
+      <TextField fx:id="adresse" layoutX="215.0" layoutY="131.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label layoutX="149.0" layoutY="135.0" text="Adresse" />
+   </children>
+</AnchorPane>

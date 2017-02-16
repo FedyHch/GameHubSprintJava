@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.FXMLDocumentController">
+   <children>
+      <TableView fx:id="tab" layoutX="22.0" layoutY="25.0" prefHeight="200.0" prefWidth="535.0">
+        <columns>
+          <TableColumn fx:id="id_evenement" prefWidth="37.0" text="Id" />
+          <TableColumn fx:id="id_admin" prefWidth="104.0" text="Nom de l'admin" />
+            <TableColumn fx:id="object" prefWidth="90.0" text="Titre" />
+            <TableColumn fx:id="adresse" prefWidth="88.0" text="Adresse" />
+            <TableColumn fx:id="date" prefWidth="83.0" text="Date" />
+            <TableColumn fx:id="description" prefWidth="132.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button fx:id="baj" layoutX="28.0" layoutY="282.0" mnemonicParsing="false" onAction="#bajAction" text="Ajouter" />
+      <Button fx:id="bsup" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#bsupAction" text="Supprimer" />
+      <Button fx:id="bmod" layoutX="115.0" layoutY="282.0" mnemonicParsing="false" onAction="#bmodAction" text="Modifier" />
+      <TextField fx:id="obj" layoutX="425.0" layoutY="337.0" />
+      <Label layoutX="327.0" layoutY="341.0" text="dont le titre est :" />
+   </children>
+</AnchorPane>
