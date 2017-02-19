@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="gamehub.controller.ModifierCompteController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="232.0" layoutY="32.0" text="Modifier compte" textAlignment="CENTER" textFill="#bf1414">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="92.0" text="Pseudo" />
+      <Label layoutX="86.0" layoutY="170.0" text="Nom" />
+      <Label layoutX="86.0" layoutY="247.0" text="Prenom" />
+      <Label layoutX="325.0" layoutY="92.0" text="E_mail" />
+      <Label layoutX="325.0" layoutY="170.0" text="Password" />
+      <Label layoutX="325.0" layoutY="247.0" text="Tel" />
+      <TextField fx:id="pseudom" layoutX="143.0" layoutY="88.0" />
+      <TextField fx:id="nomm" layoutX="143.0" layoutY="166.0" />
+      <TextField fx:id="prenomm" layoutX="143.0" layoutY="243.0" />
+      <TextField fx:id="emailm" layoutX="384.0" layoutY="88.0" />
+      <TextField fx:id="telm" layoutX="384.0" layoutY="243.0" />
+      <PasswordField fx:id="passm" layoutX="384.0" layoutY="166.0" />
+      <Button fx:id="modifier" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="313.0" mnemonicParsing="false" onAction="#ModifierAction" prefHeight="25.0" prefWidth="226.0" text="Modifier" />
+   </children>
+</AnchorPane>

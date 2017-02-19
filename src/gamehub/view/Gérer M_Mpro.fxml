@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gamehub.controller.GérerM_MproController">
+   <children>
+      <Label layoutX="8.0" layoutY="9.0" text="Gérer les utilisateurs" textFill="#e86464">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablem" layoutX="11.0" layoutY="127.0" prefHeight="231.0" prefWidth="290.0">
+        <columns>
+          <TableColumn fx:id="pseudoM" prefWidth="75.0" text="PseudoM" />
+          <TableColumn fx:id="nomM" prefWidth="75.0" text="NomM" />
+            <TableColumn fx:id="emailM" prefWidth="75.0" text="E_mailM" />
+            <TableColumn fx:id="etatm" prefWidth="75.0" text="EtatM" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablempro" layoutX="307.0" layoutY="127.0" prefHeight="231.0" prefWidth="290.0">
+         <columns>
+            <TableColumn fx:id="pseudomp" prefWidth="75.0" text="PseudoMP" />
+            <TableColumn fx:id="nommp" prefWidth="75.0" text="NomMP" />
+            <TableColumn fx:id="emailmp" prefWidth="75.0" text="E_mailMP" />
+            <TableColumn fx:id="etatmp" prefWidth="75.0" text="EtatMP" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimer" layoutX="7.0" layoutY="48.0" mnemonicParsing="false" onAction="#SupprimerAction" prefHeight="25.0" prefWidth="95.0" text="Supprimer M" />
+      <TextField layoutX="114.0" layoutY="48.0" fx:id="x" />
+      <Button fx:id="rechercher" layoutX="7.0" layoutY="77.0" mnemonicParsing="false" onAction="#Rechercher" prefHeight="25.0" prefWidth="95.0" text="Rechercher M" />
+      <TextField fx:id="rech" layoutX="114.0" layoutY="77.0" />
+      <Button fx:id="suppmp" layoutX="305.0" layoutY="48.0" mnemonicParsing="false" onAction="#SuppM_ProAction" prefHeight="25.0" prefWidth="120.0" text="Supprimer M_pro" />
+      <Button fx:id="rechmp" layoutX="305.0" layoutY="76.0" mnemonicParsing="false" onAction="#RechercherM_ProAction" prefHeight="25.0" prefWidth="120.0" text="Rechercher M_pro" />
+      <TextField fx:id="y" layoutX="437.0" layoutY="48.0" />
+      <TextField fx:id="rechy" layoutX="437.0" layoutY="76.0" />
+      <Button fx:id="back" layoutX="534.0" layoutY="364.0" mnemonicParsing="false" onAction="#BAckAction" text="&lt;&lt;Back" />
+   </children>
+</AnchorPane>
