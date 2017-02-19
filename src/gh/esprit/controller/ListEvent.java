@@ -26,6 +26,13 @@ public class ListEvent {
     
     private ObservableList<Evenement> events=FXCollections.observableArrayList();
 
+    
+    public ListEvent(String s) {
+        gestionEvenement gev = new gestionEvenement();
+        events.addAll(gev.rechKeyUp(s));
+    
+    
+    }
     public ListEvent() {
         
         gestionEvenement gev= new gestionEvenement();

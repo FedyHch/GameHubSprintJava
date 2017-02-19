@@ -2,20 +2,23 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.AjouterPersonneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@testcss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.AjouterPersonneController">
    <children>
       <Label layoutX="61.0" layoutY="63.0" text="Titre" />
-      <TextField fx:id="object" layoutX="132.0" layoutY="59.0" />
+      <TextField fx:id="object" layoutX="132.0" layoutY="59.0" prefHeight="31.0" prefWidth="214.0" />
       <Label layoutX="59.0" layoutY="140.0" text="Date :" />
       <Label layoutX="40.0" layoutY="181.0" text="Description :" />
       <Button fx:id="baj" layoutX="132.0" layoutY="337.0" mnemonicParsing="false" onAction="#bajAction" text="Ajouter" />
-      <DatePicker fx:id="date" layoutX="132.0" layoutY="145.0" />
-      <TextArea fx:id="desc" layoutX="132.0" layoutY="181.0" prefHeight="149.0" prefWidth="174.0" />
+      <DatePicker fx:id="date" layoutX="132.0" layoutY="145.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextArea fx:id="desc" layoutX="132.0" layoutY="181.0" prefHeight="149.0" prefWidth="242.0" />
       <Button fx:id="retour" layoutX="237.0" layoutY="337.0" mnemonicParsing="false" onAction="#retAction" text="Retour" />
-      <Label layoutX="241.0" layoutY="23.0" text="Ajout d'un événement" />
+      <Label layoutX="201.0" layoutY="14.0" styleClass="hyperlink" text="Ajout d'un événement" underline="true" />
       <Label layoutX="49.0" layoutY="108.0" text="Adresse :" />
-      <TextField fx:id="adresse" layoutX="132.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="adresse" layoutX="132.0" layoutY="104.0" prefHeight="31.0" prefWidth="214.0" />
+      <Button fx:id="bs" layoutX="412.0" layoutY="337.0" mnemonicParsing="false" onAction="#bsAction" text="Browse Affiche" />
+      <ImageView fx:id="imgva" fitHeight="273.0" fitWidth="200.0" layoutX="393.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

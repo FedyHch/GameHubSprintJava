@@ -7,6 +7,7 @@ package gh.esprit.controller;
 
 import gh.esprit.service.gestionEvenement;
 import gh.esprit.entity.Evenement;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -45,6 +49,14 @@ public class AjouterPersonneController implements Initializable {
     private Button retour;
     @FXML
     private TextField adresse;
+    @FXML
+    private Button bs;
+    @FXML
+    private ImageView imgva;
+    
+    public String path;
+    
+    private File selectedFile=null;
 
     /**
      * Initializes the controller class.
@@ -66,7 +78,7 @@ public class AjouterPersonneController implements Initializable {
     
     @FXML
     private void bajAction(ActionEvent event) {
-         Evenement ev = new Evenement(1,1,object.getText(), desc.getText() ,date.getValue(), adresse.getText());
+         Evenement ev = new Evenement(1,1,object.getText(), desc.getText() ,date.getValue(), adresse.getText(),path);
             gestionEvenement gev = new gestionEvenement();
             try{
             gev.ajouterEvenement(ev);
@@ -96,6 +108,34 @@ public class AjouterPersonneController implements Initializable {
             }
         
          
+    }
+
+    @FXML
+    private void bsAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+             
+            String imgpath = selectedFile.getAbsolutePath();
+            if(imgpath.toUpperCase().endsWith(".JPG")||imgpath.toUpperCase().endsWith(".JPEG")||imgpath.toUpperCase().endsWith(".PNG")){
+            
+            path=("file:\\"+imgpath);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez choisir une image");
+        alert.show();
+            }
+            
+        } else {
+            System.out.println("File selection cancelled.");
+            selectedFile = null;
+            
+        }
+        Image img = new Image(path);
+        imgva.setImage(img);
     }
 
 }

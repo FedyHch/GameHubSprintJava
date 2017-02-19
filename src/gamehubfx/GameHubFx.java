@@ -19,6 +19,7 @@ public class GameHubFx extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
         Parent root = FXMLLoader.load(getClass().getResource("/gh/esprit/views/FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);

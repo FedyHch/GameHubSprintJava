@@ -21,6 +21,7 @@ public class Evenement {
     private SimpleStringProperty object;
     private SimpleStringProperty description;
     private SimpleStringProperty adresse;
+    private SimpleStringProperty path;
     private LocalDate date;
     
 
@@ -28,13 +29,14 @@ public class Evenement {
     }
     
 
-    public Evenement(int id_evenement, int id_admin, String object, String description,  LocalDate date, String adresse) {
+    public Evenement(int id_evenement, int id_admin, String object, String description,  LocalDate date, String adresse, String path) {
         this.id_evenement = new SimpleIntegerProperty(id_evenement);
         this.id_admin = new SimpleIntegerProperty(id_admin);
         this.object = new SimpleStringProperty(object);
         this.description = new SimpleStringProperty(description);
         this.adresse = new SimpleStringProperty(adresse);
         this.date = date;
+        this.path = new SimpleStringProperty(path);
     }
      public Evenement( String object, String description, LocalDate date) {
        
@@ -97,7 +99,15 @@ public class Evenement {
     public void setDescription(String description) {
         this.description = new SimpleStringProperty(description);
     }
-
+public String getPath() {
+        return path.get();
+    }
+    public SimpleStringProperty getPathProperty() {
+        return path;
+    }
+     public void setPath(String path) {
+        this.path = new SimpleStringProperty(path);
+    }
     public LocalDate getDate() {
         return date;
     }
@@ -120,11 +130,10 @@ public class Evenement {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.id_evenement);
-        hash = 23 * hash + Objects.hashCode(this.id_admin);
-        hash = 23 * hash + Objects.hashCode(this.object);
-        return hash;
+      
+        return this.getId_evenement();
+
+        
     }
 
     @Override
@@ -139,12 +148,7 @@ public class Evenement {
         if (!Objects.equals(this.id_evenement, other.id_evenement)) {
             return false;
         }
-        if (!Objects.equals(this.id_admin, other.id_admin)) {
-            return false;
-        }
-        if (!Objects.equals(this.object, other.object)) {
-            return false;
-        }
+       
         return true;
     }
     
