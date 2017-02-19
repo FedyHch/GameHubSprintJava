@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="697.0" styleClass="background" stylesheets="@../../../../../../../Desktop/testcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.ModifierPublicationController">
+   <children>
+      <TextField fx:id="lab1" layoutX="342.0" layoutY="75.0" />
+      <TextField fx:id="lab3" layoutX="342.0" layoutY="229.0" />
+      <TextField fx:id="lab4" layoutX="342.0" layoutY="269.0" />
+      <TextField fx:id="lab5" layoutX="342.0" layoutY="308.0" />
+      <Label layoutX="244.0" layoutY="79.0" text="id_chaine" />
+      <Label layoutX="244.0" layoutY="116.0" text="text" />
+      <Label layoutX="244.0" layoutY="233.0" text="type" />
+      <Label layoutX="244.0" layoutY="273.0" text="text" />
+      <Label layoutX="244.0" layoutY="312.0" text="url" />
+      <Label layoutX="250.0" layoutY="33.0" text="Modifier publication:" />
+      <Button fx:id="btMod" layoutX="342.0" layoutY="393.0" mnemonicParsing="false" text="Modifier publication" />
+      <TextField fx:id="lab6" disable="true" layoutX="342.0" layoutY="345.0" />
+      <Label layoutX="242.0" layoutY="349.0" text="Jaimes" />
+      <ImageView fx:id="idimgv" fitHeight="216.0" fitWidth="207.0" layoutX="7.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="idUrl" layoutX="569.0" layoutY="305.0" mnemonicParsing="false" scaleY="0.75" text="Importer" />
+      <TextArea fx:id="lab2" layoutX="342.0" layoutY="111.0" prefHeight="107.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>
