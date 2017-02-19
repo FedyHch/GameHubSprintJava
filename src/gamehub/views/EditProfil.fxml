@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gamehub.controller.EditProfilController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutX="-1.0" layoutY="-3.0" prefHeight="407.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="PdP" fitHeight="160.0" fitWidth="175.0" pickOnBounds="true" />
+                  <Button layoutX="-3.0" layoutY="160.0" mnemonicParsing="false" onAction="#Back" prefHeight="25.0" prefWidth="182.0" text="Back" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.2655086848635236" layoutX="1.0" orientation="VERTICAL" prefHeight="405.0" prefWidth="417.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <ImageView fitHeight="104.0" fitWidth="415.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="46.0" layoutY="31.0" text="Nom Chaine" />
+                              <Label layoutX="46.0" layoutY="63.0" text="Type" />
+                              <Label layoutX="46.0" layoutY="101.0" text="Avatar" />
+                              <Label layoutX="265.0" layoutY="101.0" text="Url_Chaine" />
+                              <Label layoutX="48.0" layoutY="146.0" text="Console de Streaming" />
+                              <Label layoutX="46.0" layoutY="200.0" text="Signature" />
+                              <TextField fx:id="txt2" layoutX="133.0" layoutY="27.0" />
+                              <ComboBox fx:id="CombTypeCh" layoutX="133.0" layoutY="59.0" prefWidth="150.0" />
+                              <ComboBox fx:id="CombCons" layoutX="180.0" layoutY="142.0" prefWidth="150.0" />
+                              <Button layoutX="97.0" layoutY="97.0" mnemonicParsing="false" onAction="#Avatar" text="Browse" />
+                              <Button layoutX="336.0" layoutY="97.0" mnemonicParsing="false" onAction="#URL_Image" text="Browse" />
+                             
+                              <Button layoutX="283.0" layoutY="254.0" mnemonicParsing="false" onAction="#Delete2" text="Delete" />
+                              <TextArea fx:id="txt3" layoutX="106.0" layoutY="188.0" prefHeight="59.0" prefWidth="298.0" />
+                              <Button layoutX="194.0" layoutY="254.0" mnemonicParsing="false" onAction="#Modif2" text="Modifier" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
