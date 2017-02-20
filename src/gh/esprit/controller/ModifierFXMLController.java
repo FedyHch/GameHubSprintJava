@@ -10,7 +10,6 @@ import gh.esprit.service.gestionEvenement;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,9 +104,7 @@ public class ModifierFXMLController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Evenement modifié!");
         alert.show();
-        id_evenement.setText("");
-        object.setText("");
-        description.setText("");
+
        
         
     }

@@ -24,7 +24,7 @@ public class gestionEvenement {
        try{   
         PreparedStatement ps = MyConnection.getInstance().prepareStatement(req);
 //        ps.setInt(1,ev.getId_evenement());
-        ps.setInt(1,2);
+        ps.setInt(1,3);
         ps.setString(2,ev.getObject());
         ps.setString(3,ev.getDescription());
         ps.setDate(4,Date.valueOf(ev.getDate()));

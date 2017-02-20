@@ -7,6 +7,7 @@ package gh.esprit.controller;
 
 import gh.esprit.service.gestionEvenement;
 import gh.esprit.entity.Evenement;
+import gh.esprit.technique.ImagV;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -54,7 +55,7 @@ public class AjouterPersonneController implements Initializable {
     @FXML
     private ImageView imgva;
     
-    public String path;
+    public String path="";
     
     private File selectedFile=null;
 
@@ -69,7 +70,7 @@ public class AjouterPersonneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO     
       
-            
+            imgva.setImage(ImagV.getImage("file:\\C:/Riot Games/affiche.png"));
           
         
         }
@@ -78,7 +79,15 @@ public class AjouterPersonneController implements Initializable {
     
     @FXML
     private void bajAction(ActionEvent event) {
-         Evenement ev = new Evenement(1,1,object.getText(), desc.getText() ,date.getValue(), adresse.getText(),path);
+        if ((object.getText().equals(""))||(desc.getText().equals(""))||(adresse.getText().equals(""))||date.getValue()==null||path.equals(""))
+        {  Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Vueillez remplir tous les champs et chargez l affiche");
+        alert.show();
+        }
+        else
+        {Evenement ev = new Evenement(1,1,object.getText(), desc.getText() ,date.getValue(), adresse.getText(),path);
             gestionEvenement gev = new gestionEvenement();
             try{
             gev.ajouterEvenement(ev);
@@ -87,14 +96,15 @@ public class AjouterPersonneController implements Initializable {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Personne insérée avec succés!");
+        alert.setContentText("Evénement insérée avec succés!");
         alert.show();
         object.setText("");
         desc.setText("");
         adresse.setText("");
         date.setValue(null);
+        imgva.setImage(ImagV.getImage("file:\\C:/Riot Games/affiche.png"));
     }
-
+    }
     @FXML
     private void retAction(ActionEvent event) {
         try {

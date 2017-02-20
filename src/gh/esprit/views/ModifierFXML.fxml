@@ -20,7 +20,7 @@
       <Label layoutX="137.0" layoutY="14.0" styleClass="hyperlink" text="Modification de l'événement" textAlignment="JUSTIFY" textOverrun="CLIP" underline="true" />
       <TextField fx:id="adresse" layoutX="118.0" layoutY="109.0" prefHeight="31.0" prefWidth="219.0" />
       <Label layoutX="50.0" layoutY="116.0" text="Adresse :" />
-      <ImageView fx:id="imvm" fitHeight="199.0" fitWidth="249.0" layoutX="350.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="bsm" layoutX="398.0" layoutY="346.0" mnemonicParsing="false" onAction="#bsmAction" text="Modifier l'affiche" />
+      <ImageView fx:id="imvm" fitHeight="214.0" fitWidth="201.0" layoutX="398.0" layoutY="110.0" pickOnBounds="true" />
+      <Button fx:id="bsm" layoutX="432.0" layoutY="346.0" mnemonicParsing="false" onAction="#bsmAction" text="Modifier l'affiche" />
    </children>
 </AnchorPane>

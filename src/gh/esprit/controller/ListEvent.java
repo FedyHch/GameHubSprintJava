@@ -29,7 +29,7 @@ public class ListEvent {
     
     public ListEvent(String s) {
         gestionEvenement gev = new gestionEvenement();
-         events.addAll(gev.rechKeyUp(s));
+         events=(gev.rechKeyUp(s));
     
     
     }

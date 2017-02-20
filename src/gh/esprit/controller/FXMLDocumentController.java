@@ -6,14 +6,15 @@
 package gh.esprit.controller;
 
 
-import javafx.scene.image.ImageView;
+
 import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Jpeg;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -27,7 +28,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -116,13 +116,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button api;
     @FXML
-    private Label labtitre;
-    @FXML
     private Label labdate;
     @FXML
     private ImageView imgv;
     @FXML
     private ImageView search;
+    @FXML
+    private Button lc;
     
     
     
@@ -130,42 +130,46 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gestionEvenement gev = new gestionEvenement();
-        
         search.setImage(ImagV.getImage("file:\\C:/Riot Games/search.png"));
-
-        imgv.setImage(ImagV.getImage("file:\\C:/Riot Games/affiche.png"));
+         imgv.setImage(ImagV.getImage("file:\\C:/Riot Games/affiche.png"));
+         idevento=null;
         
-        idevento=null;
-        
-        
-         tab.setItems(listev.getevents());
+        tab.setItems(listev.getevents());
         id_evenement.setCellValueFactory(cell -> (cell.getValue().getId_evenementPorperty()).asObject());
-        id_admin.setCellValueFactory((cell) -> { return new SimpleStringProperty(gev.rechercherNomAdmin(cell.getValue().getId_admin()));});
-        
-        
-        object.setCellValueFactory(cell -> cell.
-                getValue().getObjectProperty());
-        description.setCellValueFactory(cell -> cell.
-                getValue().getDescriptionProperty());
-        date.setCellValueFactory(cell -> cell.
-                getValue().getDateProperty());
-        adresse.setCellValueFactory(cell -> cell.
-                getValue().getAdresseProperty()); 
+        id_admin.setCellValueFactory((cell) -> { return new SimpleStringProperty(gev.rechercherNomAdmin(cell.getValue().getId_admin()));});    
+        object.setCellValueFactory(cell -> cell.getValue().getObjectProperty());
+        description.setCellValueFactory(cell -> cell.getValue().getDescriptionProperty());
+        date.setCellValueFactory(cell -> cell.getValue().getDateProperty());
+        adresse.setCellValueFactory(cell -> cell.getValue().getAdresseProperty()); 
       
-        
+       
          
         tab.setOnMouseClicked(event -> {
-    patho = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getPath());
+            if (obj.getText().equals("")) 
+           {
+     patho = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getPath());
     imgv.setImage(ImagV.getImage(patho));
     titro = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getObject());
     idevento = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getId_evenement());
     descripto = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getDescription());
     adresso = String.valueOf(listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getAdresse());
     dato = listev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getDate();
-    labdate.setText("");
-           
 
+           
+           }else {
+                ListEvent lev = new ListEvent(obj.getText());
+    patho = String.valueOf(lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getPath());
+    imgv.setImage(ImagV.getImage(patho));
+    titro = String.valueOf(lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getObject());
+    idevento = String.valueOf(lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getId_evenement());
+    descripto = String.valueOf(lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getDescription());
+    adresso = String.valueOf(lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getAdresse());
+    dato = lev.getevents().get(tab.getSelectionModel().getSelectedIndex()).getDate();
+    labdate.setText("");
+                
+                 }
     });
+                
       
  
         
@@ -245,18 +249,18 @@ public class FXMLDocumentController implements Initializable {
     private void apiAction(ActionEvent event) throws BadElementException, IOException {
    
         int indentation = 0;
-      Random r = new Random();
+    
         try {
             Document doc = new Document();
             try {
-                PdfWriter.getInstance(doc, new FileOutputStream(titro+r.toString()+"certificates.pdf"));
+                PdfWriter.getInstance(doc, new FileOutputStream(titro+"_Affiche.pdf"));
             } catch (FileNotFoundException ex) {
                 
             }
          
             doc.open();
             doc.addHeader(titro, idevento);
-            doc.addTitle("love");
+            doc.addTitle("title");
            
              String imageUrl = patho;
 
@@ -265,26 +269,31 @@ public class FXMLDocumentController implements Initializable {
                - doc.rightMargin() - indentation) / image2.getWidth()) * 100;
          image2.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
             image2.scaleAbsolute(530, 600f);
+             String imageUrl2 = "file:\\C:/Users/Kyogr/Desktop/bb.jpg";
 
-//        image2.scalePercent(scaler);
-//         image2.scaleAbsolute(700, 900);
+         Image image3 = Image.getInstance(new URL(imageUrl2));
+    
+        
+       image3.setAbsolutePosition(0, 0);
+       image3.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+       image3.scaleAbsolute(700, 900);
+        doc.add(image3);
         doc.add(image2); 
-        Paragraph paragraph1 = new Paragraph("L'événement '"+titro+"', sera lieu à "+adresso+" ,le "+dato);
-        Paragraph paragraph2 = new Paragraph("Description :"+descripto);
-        Paragraph paragraph3 = new Paragraph(" \n ");
+        Font f=new Font(FontFamily.TIMES_ROMAN,25.0f,Font.UNDERLINE,BaseColor.WHITE);
+           Paragraph paragraph2 = new Paragraph("Description :"+descripto,f);
+        Paragraph paragraph3 = new Paragraph("  ");
         paragraph2.setSpacingBefore(20f);
         Chunk linebreak = new Chunk(new DottedLineSeparator());
         doc.add(paragraph3);
         doc.add(linebreak);  
-        doc.add(paragraph1);
         doc.add(paragraph2);
         doc.add(linebreak); 
  
             doc.close();
         } catch (DocumentException ex) {
            
-//        } catch (MalformedURLException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -328,6 +337,26 @@ public class FXMLDocumentController implements Initializable {
         }
         
         
+    }
+
+    @FXML
+    private void gmpAction(ActionEvent event) {
+        
+        
+        try {
+                        
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gh/esprit/views/maps.fxml"));
+                        Parent root1 = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        
+                        
+                        stage.setScene(new Scene(root1));
+                        stage.show();
+                        
+                        
+                    } catch (IOException ex) {
+                        System.out.println("err redirection");
+                    }
     }
 }
     
