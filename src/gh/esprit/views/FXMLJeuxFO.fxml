@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="409.0" prefWidth="950.0" stylesheets="@testcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gh.esprit.controller.FXMLJeuxFOController">
+   <children>
+      <SplitPane dividerPositions="0.23244147157190637" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="131.0" styleClass="background">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="120.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../affiches/classic.png" />
+                     </image>
+                  </ImageView>
+                  <TableView fx:id="top3Tab" layoutY="94.0" prefHeight="311.0" prefWidth="217.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="94.0">
+                    <columns>
+                      <TableColumn fx:id="titreTop" prefWidth="71.0" sortable="false" text="Top des Jeux" />
+                        <TableColumn fx:id="AfficheTop" prefWidth="71.0" sortable="false" text="Affiche" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.22469135802469137" layoutX="112.0" layoutY="99.0" orientation="VERTICAL" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
+                           <children>
+                              <TextField fx:id="Rech" layoutX="72.0" layoutY="29.0" onKeyTyped="#RechKeyUp1" />
+                              <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="296.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../affiches/search-icon-hi.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
+                           <children>
+                              <ImageView fx:id="imgJeux" fitHeight="309.0" fitWidth="301.0" layoutX="424.0" layoutY="1.0" pickOnBounds="true">
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </ImageView>
+                              <TableView fx:id="tabJeux" layoutY="1.0" prefHeight="309.0" prefWidth="291.0">
+                                <columns>
+                                  <TableColumn fx:id="titreJeux" prefWidth="87.0" text="Titre" />
+                                  <TableColumn fx:id="noteJeux" prefWidth="50.0" text="Note" />
+                                    <TableColumn fx:id="genreJeux" prefWidth="97.0" text="Genre" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <Button fx:id="detailBt" layoutX="315.0" layoutY="138.0" mnemonicParsing="false" onAction="#detailAction" text="Détails" />
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
